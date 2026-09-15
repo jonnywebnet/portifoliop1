@@ -36,16 +36,16 @@ const projects = [
     visual: "cafe",
   },
   {
-    number: "03",
-    type: "ESTUDOS DE FRONT-END",
-    title: "React Study",
-    description:
-      "Repositório de estudos para experimentar interfaces, componentes e fundamentos de CSS durante a formação em desenvolvimento web.",
-    tags: ["React", "CSS", "Git"],
-    status: "Estudo contínuo",
-    link: "https://github.com/jonnywebnet/reactstudy",
-    visual: "code",
-  },
+  number: "03",
+  type: "HABILIDADES",
+  title: "O que estou desenvolvendo",
+  description:
+    "Habilidades que venho praticando em projetos acadêmicos e pessoais, com foco em desenvolvimento web, lógica e construção de interfaces.",
+  tags: ["React", "TypeScript", "Python"],
+  status: "Em desenvolvimento",
+  link: undefined,
+  visual: "skills",
+},
 ];
 
 function ProjectVisual({ type }: { type: string }) {
@@ -71,6 +71,36 @@ function ProjectVisual({ type }: { type: string }) {
     </div>
   );
 }
+
+if (type === "skills") {
+  return (
+    <div className="project-visual visual-skills">
+      <img
+        src="/assets/habilidades.jpg"
+        alt=""
+        className="skills-background"
+      />
+
+      <div className="skills-overlay" />
+
+      <div className="skills-card-title">
+        <span>STACK</span>
+        <strong>habilidades em prática.</strong>
+      </div>
+
+      <div className="skills-card-list">
+        <span>React</span>
+        <span>TypeScript</span>
+        <span>Python</span>
+        <span>HTML / CSS</span>
+        <span>Git / GitHub</span>
+        <span>MySQL</span>
+      </div>
+    </div>
+  );
+}
+
+
 
   return <div className="project-visual visual-code"><div className="code-lines"><span /><span /><span /><span /><span /><span /></div><Code2 size={52} /><strong>aprendendo<br />na prática.</strong></div>;
 }
@@ -110,7 +140,8 @@ export default function Home() {
 
         <section className="about-new" id="sobre"><div className="content-wrap"><div className="section-heading"><span className="section-number">01</span><div><p className="section-overline">Sobre mim</p><h2>Desenvolver é<br /><em>resolver.</em></h2></div></div><div className="about-copy"><div><p className="about-lead">Não quero apenas fazer telas bonitas. Quero entender o problema, organizar a solução e entregar algo que realmente ajude alguém.</p><p>Na Engenharia de Software, venho construindo repertório com aplicações web, jogos e estudos de front-end. Também tenho experiência prática trabalhando em sistemas administrativos, sempre com atenção para organização, segurança e usabilidade.</p></div><div className="about-facts"><div><span>FORMAÇÃO</span><b>Engenharia de<br />Software</b></div><div><span>LOCALIZAÇÃO</span><b>Saquarema,<br />Rio de Janeiro</b></div><div><span>INTERESSE</span><b>Desenvolvimento<br />web</b></div></div></div></div></section>
 
-        <section className="projects-new" id="projetos"><div className="content-wrap"><div className="projects-heading"><div className="section-heading"><span className="section-number">02</span><div><p className="section-overline">Trabalho selecionado</p><h2>O que eu<br /><em>construí.</em></h2></div></div><p>Projetos reais, estudos e sistemas em evolução. Cada um representa uma etapa diferente do meu aprendizado.</p></div><div className="projects-grid">{projects.map((project) => <article className="project-card-new" key={project.title}><ProjectVisual type={project.visual} /><div className="project-card-body"><div className="project-card-top"><span>{project.number} / {project.type}</span><span className="project-status"><i /> {project.status}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-card-footer"><div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Abrir ${project.title} no GitHub`}><ExternalLink size={18} /></a> : <span className="private-label">projeto privado</span>}</div></div></article>)}</div></div></section>
+        <section className="projects-new" id="projetos"><div className="content-wrap"><div className="projects-heading"><div className="section-heading"><span className="section-number">02</span><div><p className="section-overline">Trabalho selecionado</p><h2>O que eu<em>construí.</em></h2></div></div><p>Projetos reais, estudos e sistemas em evolução. Cada um representa uma etapa diferente do meu aprendizado.</p></div><div className="projects-grid">{projects.map((project) => <article className="project-card-new" key={project.title}><ProjectVisual type={project.visual} /><div className="project-card-body"><div className="project-card-top"><span>{project.number} / {project.type}</span><span className="project-status"><i /> {project.status}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-card-footer"><div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{project.link ? 
+        <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Abrir ${project.title} no GitHub`}><ExternalLink size={18} /></a> : project.visual === "skills" ? <span className="private-label">habilidades atuais</span> : <span className="private-label">projeto privado</span>}</div></div></article>)}</div></div></section>
 
         <section className="skills-new"><div className="content-wrap"><div className="skills-title"><Code2 size={20} /><span>Ferramentas que estou usando</span></div><div className="skills-cloud"><span>React</span><span>TypeScript</span><span>Python</span><span>HTML</span><span>CSS</span><span>Git</span><span>Pygame</span><span>MySQL</span><span>APIs</span></div></div></section>
 
