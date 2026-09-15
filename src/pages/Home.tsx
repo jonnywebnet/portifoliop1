@@ -50,11 +50,28 @@ const projects = [
 
 function ProjectVisual({ type }: { type: string }) {
   if (type === "service") {
-    return <div className="project-visual visual-service"><div className="visual-window"><span className="window-dots"><i /><i /><i /></span><span className="visual-nav">TG / PAINEL</span><div className="visual-dashboard"><div className="dashboard-side" /><div className="dashboard-main"><b>Ordens de serviço</b><span /><span /><span /></div></div></div><strong>organizar<br />para atender.</strong></div>;
-  }
+  return (
+    <div className="project-visual visual-service">
+      <img
+        src="/assets/tgassistenci.jpg"
+        alt="Tela do sistema TG Assistência"
+        className="project-image"
+      />
+    </div>
+  );
+}
   if (type === "cafe") {
-    return <div className="project-visual visual-cafe"><div className="coffee-circle" /><div className="coffee-cup"><span /></div><div className="pixel-spark spark-one" /><div className="pixel-spark spark-two" /><strong>café<br />aurora</strong></div>;
-  }
+  return (
+    <div className="project-visual visual-cafe">
+      <img 
+        src="/assets/Aurora.jpg" 
+        alt="Foto de alta qualidade do Café Aurora" 
+        className="project-image2"
+      />
+    </div>
+  );
+}
+
   return <div className="project-visual visual-code"><div className="code-lines"><span /><span /><span /><span /><span /><span /></div><Code2 size={52} /><strong>aprendendo<br />na prática.</strong></div>;
 }
 
